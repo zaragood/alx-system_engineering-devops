@@ -1,0 +1,14 @@
+#!/usr/bin/env bash
+# Bash script that displays:
+# The content of the current directory in a list format
+
+# loop through the file
+for file in *
+do
+	# check if the file name conatins a -
+	if [[ "$file" == *_* ]]
+	then
+		file_name="${file#*-}"
+		echo "$file_name"
+	fi
+done

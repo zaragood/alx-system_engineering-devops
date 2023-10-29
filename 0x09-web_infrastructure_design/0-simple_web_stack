@@ -1,0 +1,42 @@
+This is a simple web stack infrastructure that hosts the website that is reachable via www.foobar.com.
+
+A user is trying to acces the website www.foobar.com through the web browser known as the client.
+during this process a http request is sent to the DNS resolver which resolves the domain name into an IP address and this IP address is then sent bact to the client which then makes a http request to the server, Nginx, as the web server, receives the request, The application server processes the request, utilizing the application files and possibly interacting with the MySQL database. The application server generates the necessary content, Nginx sends this content back to the user's web browser, which renders the web page.
+
+# A server is an actual phycal computer that host various software components, including the web server, application server and database server.
+
+# The role of the domain name is to identify internet networks and services with a text based lable that is easier to memorise thatn the numerical addressses used in the internet protocols.
+
+# www is a subdomain which is in the CNAME record
+
+# The role of the web server is to deliver the web page/ content back to the user
+
+# The primary role of an application server is to handle dynamic content and business logic, enabling the web application to perform various functions based on user input and interactions
+
+# The database is responsible for storing, organizing, and managing the application's data
+
+# When a user requests a website, the communication between the user's computer (client) and the server occurs over the internet using the Hypertext Transfer Protocol (HTTP) or its secure variant, HTTPS. HTTP is a protocol used for transmitting data on the internet. 
+
+The described infrastructure has several issues that can impact its reliability, scalability, and availability:
+
+1. **Single Point of Failure (SPOF):**
+   - **Problem:** Having a single server (or a limited number of servers) means that if that server fails, the entire application or website becomes inaccessible.
+   - **Impact:** Users cannot access the website or application, leading to downtime and potential loss of business or user engagement.
+   - **Solution:** Implementing redundancy and failover mechanisms, such as load balancing across multiple servers or server replication, can help mitigate the risks associated with SPOF.
+
+2. **Downtime During Maintenance:**
+   - **Problem:** Performing maintenance tasks, such as deploying new code or updating the web server, often requires stopping services. This downtime can disrupt user access to the application or website.
+   - **Impact:** Users experience temporary unavailability of the service, leading to inconvenience and potentially negative user experience.
+   - **Solution:** Implementing rolling deployments, where updates are applied gradually across servers without interrupting service, can minimize downtime. Additionally, using containerization and orchestration tools (e.g., Docker and Kubernetes) can facilitate seamless updates and scaling.
+
+3. **Limited Scalability:**
+   - **Problem:** The infrastructure described may struggle to handle sudden spikes in traffic, leading to slow performance or service unavailability during high-demand periods.
+   - **Impact:** Users may experience slow loading times or be unable to access the website, leading to poor user experience and potential revenue loss.
+   - **Solution:** Implementing horizontal scaling by adding more servers and distributing the traffic among them through load balancing can enhance scalability. Cloud-based solutions and serverless architectures offer auto-scaling features that automatically adjust resources based on demand, ensuring better scalability.
+
+4. **Security Concerns:**
+   - **Problem:** A single server might be more vulnerable to certain types of attacks, and if compromised, the entire application's security is at risk.
+   - **Impact:** Data breaches, loss of sensitive information, and potential legal consequences can result from security breaches.
+   - **Solution:** Implementing security best practices, regular security audits, and using firewalls, intrusion detection systems, and encryption can enhance the security posture of the infrastructure.
+
+Addressing these issues often involves implementing a combination of best practices, redundant systems, cloud-based solutions, and automation to ensure high availability, scalability, and security for web applications and websites.

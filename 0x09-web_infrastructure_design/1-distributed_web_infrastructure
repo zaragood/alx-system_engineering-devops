@@ -1,0 +1,39 @@
+A three server web infrastructure that hosts the website www.foobar.com.
+
+A user sends a request to access a website by entering the website's URL in their web browser.
+
+Load Balancer:
+
+The request is received by the load balancer.
+The load balancer evaluates the health and performance of available servers.
+Based on its load balancing algorithm, the load balancer selects one of the healthy server to handle the request.
+
+the  selected server then sends this request to application server, The selected application server processes the request.
+If the request involves dynamic content (such as retrieving personalized user data, processing a form, or executing business logic), the application server executes the necessary code.
+If the request requires data from a database, the application server communicates with the database to fetch or update information.
+The application server generates the dynamic content and sends the response back to the web server.
+
+The web server receives the dynamic content response from the application server. If the response includes static content (like images, stylesheets, or scripts), the web server serves it directly to the client.
+The web server then sends the complete response, including both dynamic and static content, back to the user's web browser.
+The user's web browser receives the response.
+The browser renders the HTML, processes CSS and JavaScript, and displays the web page to the user.
+
+## Load Balancer Configuration uses ROUND ROBIN algorithms, my load balancer is enabling an active-active setup.
+
+## Active-Active vs. Active-Passive Load Balancer Setup:
+Active-Active: All servers actively handle traffic simultaneously, offering load distribution and fault tolerance.
+Active-Passive: One server (active) handles traffic; others (passive) are on standby. If the active server fails, a passive server becomes active. It's cost-effective but may underutilize resources.
+
+## Database Primary-Replica (Master-Slave) Cluster:
+Primary Node: Handles write operations, acting as the authoritative data source. Receives write requests from the application and replicates changes to Replica nodes.
+Replica Node: Handles read operations, serving as a copy of the Primary node. Provides fault tolerance, load distribution, and backups. Receives replicated data from the Primary node.
+
+## Difference Between Primary and Replica Nodes Regarding the Application:
+Primary Node: Accepts write operations, ensuring data consistency. Vital for transactional and write-intensive applications.
+Replica Node: Handles read operations, distributing the read traffic, improving read performance, and providing fault tolerance.
+
+## Issues with the Infrastructure:
+# Security Issues: Absence of a firewall can expose the infrastructure to unauthorized access. Lack of HTTPS encryption can compromise data in transit.
+
+# No Monitoring: Without monitoring, issues like high traffic, server overload, or security breaches might go unnoticed, affecting performance and security.
+

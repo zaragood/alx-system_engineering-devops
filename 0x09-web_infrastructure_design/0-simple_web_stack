@@ -1,13 +1,13 @@
-This is a simple web stack infrastructure that hosts the website that is reachable via www.foobar.com.
+## This is a simple web stack infrastructure that hosts the website that is reachable via www.foobar.com.
 
-A user is trying to acces the website www.foobar.com through the web browser known as the client.
-during this process a http request is sent to the DNS resolver which resolves the domain name into an IP address and this IP address is then sent bact to the client which then makes a http request to the server, Nginx, as the web server, receives the request, The application server processes the request, utilizing the application files and possibly interacting with the MySQL database. The application server generates the necessary content, Nginx sends this content back to the user's web browser, which renders the web page.
+A user is trying to access the website www.foobar.com through the web browser known as the client.
+during this process, an HTTP request is sent to the DNS resolver which resolves the domain name into an IP address. This IP address is then sent back to the client which then makes a http request to the server, Nginx, as the web server, receives the request, The application server processes the request, utilizing the application files and possibly interacting with the MySQL database. The application server generates the necessary content, Nginx sends this content back to the user's web browser, which renders the web page.
 
-# A server is an actual phycal computer that host various software components, including the web server, application server and database server.
+# A server is a physical computer that hosts various software components, including the web server, application server, and database server.
 
-# The role of the domain name is to identify internet networks and services with a text based lable that is easier to memorise thatn the numerical addressses used in the internet protocols.
+# The role of the domain name is to identify internet networks and services with a text-based label that is easier to memorize than the numerical addresses used in the internet protocols.
 
-# www is a subdomain which is in the CNAME record
+# www is a subdomain that is in the CNAME record
 
 # The role of the web server is to deliver the web page/ content back to the user
 
@@ -17,7 +17,7 @@ during this process a http request is sent to the DNS resolver which resolves th
 
 # When a user requests a website, the communication between the user's computer (client) and the server occurs over the internet using the Hypertext Transfer Protocol (HTTP) or its secure variant, HTTPS. HTTP is a protocol used for transmitting data on the internet. 
 
-The described infrastructure has several issues that can impact its reliability, scalability, and availability:
+## The described infrastructure has several issues that can impact its reliability, scalability, and availability:
 
 1. **Single Point of Failure (SPOF):**
    - **Problem:** Having a single server (or a limited number of servers) means that if that server fails, the entire application or website becomes inaccessible.

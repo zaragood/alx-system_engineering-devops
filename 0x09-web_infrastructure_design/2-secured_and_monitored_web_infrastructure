@@ -1,0 +1,51 @@
+Certainly, let's break down how all the components work together and address the specifics of the infrastructure you described.
+
+### 1. **Three Firewalls:**
+- **Role:** Firewalls are added to control incoming and outgoing network traffic, providing security to the servers and the data.
+- **Why Added:** Firewalls help in implementing access control policies, preventing unauthorized access, and protecting against cyber threats.
+
+### 2. **SSL Certificate for HTTPS:**
+- **Role:** SSL certificates encrypt data transmitted between the client and the servers, ensuring secure communication.
+- **Why Added:** HTTPS encrypts sensitive data, like user credentials, protecting it from interception and enhancing user privacy and security.
+
+### 3. **Monitoring Clients (Data Collector for Sumo Logic or Other Monitoring Services):**
+- **Role:** Monitoring tools collect, analyze, and visualize data from servers, applications, and networks to ensure system performance, availability, and security.
+- **Why Added:** Monitoring helps in identifying issues, optimizing performance, and ensuring high availability. Sumo Logic or similar tools help in centralizing and analyzing logs and metrics for insights.
+
+### Infrastructure Specifics:
+
+#### **Additional Elements:**
+- **Firewalls:** Added for network security, controlling incoming and outgoing traffic based on predefined security rules.
+- **SSL Certificate:** Implemented for encrypting data in transit, ensuring secure communication between clients and servers.
+- **Monitoring Tools:** Used to track system performance, identify issues proactively, and ensure optimal functioning of the infrastructure.
+
+#### **Why Firewalls:**
+Firewalls are added to limit unauthorized access, safeguard against malicious attacks, and control the flow of data in and out of the network, enhancing overall security.
+
+#### **Why HTTPS:**
+Traffic is served over HTTPS to encrypt data, preventing eavesdropping and ensuring data integrity. It's crucial for protecting sensitive information transmitted between clients and servers.
+
+#### **Why Monitoring:**
+Monitoring tools are used to track server health, application performance, and network activity. They provide real-time insights, help in troubleshooting, and enable proactive issue resolution.
+
+#### **How Monitoring Tools Collect Data:**
+Monitoring tools collect data through various means, including agent-based collection, log scraping, API integrations, and system probes. These tools aggregate data from servers, applications, and network devices, providing insights into performance metrics and log data.
+
+#### **Monitoring Web Server QPS:**
+To monitor web server queries per second (QPS), you can configure monitoring tools to collect and analyze web server access logs. By parsing these logs, you can calculate the number of requests received per second, helping you understand traffic patterns and plan capacity accordingly.
+
+### Issues with the Infrastructure:
+
+#### **Terminating SSL at the Load Balancer Level:**
+- **Issue:** Terminating SSL at the load balancer exposes unencrypted traffic within the internal network, potentially compromising security.
+- **Solution:** Implement end-to-end encryption, terminating SSL at the application servers to ensure data remains encrypted throughout the entire communication path.
+
+#### **Single MySQL Server for Writes:**
+- **Issue:** A single MySQL server capable of accepting writes creates a single point of failure (SPOF) for write operations. If it fails, write operations are disrupted.
+- **Solution:** Implement a MySQL cluster with primary-replica replication, allowing for load distribution, fault tolerance, and high availability.
+
+#### **Identical Components on Servers:**
+- **Issue:** Having servers with identical components (database, web server, and application server) might lead to vulnerability exploits. If one component is compromised, all servers are at risk.
+- **Solution:** Diversify software versions, configurations, or even server types to minimize the impact of a single vulnerability across all servers.
+
+By addressing these issues and understanding the intricacies of each component, the infrastructure can be enhanced for better security, performance, and reliability.

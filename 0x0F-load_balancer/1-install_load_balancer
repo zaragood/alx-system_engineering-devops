@@ -1,0 +1,24 @@
+#!/usr/bin/env bash
+# Installs and configure HAproxy on the lb-01 server
+# using roundrobin algorithm
+
+sudo apt-get update -y
+sudo apt-get install haproxy -y
+
+# Configure HAProxy using roundrobin algorithm
+echo "
+frontend http_frontend
+    bind *:80
+    default_backend http_backend
+
+backend http_backend
+    balance roundrobin
+    server 232665-web-01 54.146.76.48:80 check
+    server 232665-web-02 100.25.192.141:80 check
+">> /etc/haproxy/haproxy.cfg
+
+# Enable HAProxy management
+sudo sed -i 's/ENABLED=0/ENABLED=1/g' /etc/default/haproxy
+
+# restart the server
+sudo service haproxy restart

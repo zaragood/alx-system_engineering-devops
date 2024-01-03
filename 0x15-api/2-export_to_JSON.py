@@ -20,7 +20,7 @@ if __name__ == "__main__":
     all_tasks = {user_id: [{"task": task.get("title"),
                             "completed": task.get("completed"),
                             "username": user_name}
-                            for task in tasks if task.get("userId") == user_id]
+                           for task in tasks if task.get("userId") == user_id]
                  }
 
     """ saves in json file"""

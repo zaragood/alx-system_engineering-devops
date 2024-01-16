@@ -21,3 +21,4 @@ def top_ten(subreddit):
             print(dict_.get('data').get('title'))
     else:
         print(None)
+

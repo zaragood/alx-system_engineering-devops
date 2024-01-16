@@ -7,8 +7,9 @@ import requests
 
 
 def top_ten(subreddit):
+    """function takes in a subreddit"""
     url = "https://www.reddit.com//r/{}/hot.json?limit=10".format(subreddit)
-    headers = {"User-agent": "1-top_ten/1.0"}
+    headers = {"User-agent": "MyApp/1.0"}
 
     response = requests.get(url, headers=headers, allow_redirects=False)
 
